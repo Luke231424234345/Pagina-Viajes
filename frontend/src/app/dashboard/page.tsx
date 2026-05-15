@@ -13,7 +13,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchTrips = async () => {
       try {
-        const response = await fetch("http://localhost:3002/api/trips");
+        const response = await fetch("https://pagina-viajes.onrender.com/api/trips");
         if (response.ok) setTrips(await response.json());
       } catch {}
       finally { setIsLoading(false); }

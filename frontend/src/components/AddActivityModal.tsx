@@ -46,7 +46,7 @@ export default function AddActivityModal({ tripId, days, defaultDay, onClose, on
       } catch {}
 
       const response = await fetch(
-        `http://localhost:3002/api/trips/${tripId}/days/${dayNumber}/activities`,
+        `https://pagina-viajes.onrender.com/api/trips/${tripId}/days/${dayNumber}/activities`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

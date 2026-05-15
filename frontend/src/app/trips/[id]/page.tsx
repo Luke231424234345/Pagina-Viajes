@@ -18,7 +18,7 @@ export default function TripDetail() {
 
   const fetchTrip = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:3002/api/trips/${params.id}`);
+      const response = await fetch(`https://pagina-viajes.onrender.com/api/trips/${params.id}`);
       if (response.ok) {
         const data = await response.json();
         setTripData(data);

@@ -207,7 +207,7 @@ export default function ImportExcelModal({ tripId, existingDays, onClose, onImpo
     let updated = [...rows];
     try {
       const uniqueLocations = [...new Set(updated.map(r => r.locationName))];
-      const res = await fetch("http://localhost:3002/api/classify", {
+      const res = await fetch("https://pagina-viajes.onrender.com/api/classify", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ locations: uniqueLocations, city }),
       });
@@ -238,7 +238,7 @@ export default function ImportExcelModal({ tripId, existingDays, onClose, onImpo
     let resolvedTripId = tripId;
     if (!resolvedTripId) {
       const maxDay = Math.max(...updated.map(r => r.day));
-      const res = await fetch("http://localhost:3002/api/trips", {
+      const res = await fetch("https://pagina-viajes.onrender.com/api/trips", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ destination: city, duration: maxDay, interests: [], pace: "medium", skipAI: true }),
       });
@@ -249,7 +249,7 @@ export default function ImportExcelModal({ tripId, existingDays, onClose, onImpo
       const row = updated[i];
       setProgress(60 + Math.round((i / updated.length) * 40));
       try {
-        const res = await fetch(`http://localhost:3002/api/trips/${resolvedTripId}/days/${row.day}/activities`, {
+        const res = await fetch(`https://pagina-viajes.onrender.com/api/trips/${resolvedTripId}/days/${row.day}/activities`, {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ locationName: row.locationName, startTime: "09:00", note: row.type, latitude: row.latitude ?? 0, longitude: row.longitude ?? 0, type: row.type }),
         });

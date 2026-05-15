@@ -18,7 +18,7 @@ export default function CreateTripWizard({ isOpen, onClose }: { isOpen: boolean;
   const handleGenerate = async () => {
     setIsGenerating(true);
     try {
-      const response = await fetch("http://localhost:3002/api/trips", {
+      const response = await fetch("https://pagina-viajes.onrender.com/api/trips", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

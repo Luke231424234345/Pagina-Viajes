@@ -170,7 +170,7 @@ export default function SuggestionsPanel({ days, tripId, onApplied }: Props) {
     if (!suggestion) return;
     setApplying(true);
     try {
-      await fetch(`http://localhost:3002/api/trips/${tripId}/reorganize`, {
+      await fetch(`https://pagina-viajes.onrender.com/api/trips/${tripId}/reorganize`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ moves: suggestion.moves }),

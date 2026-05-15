@@ -52,7 +52,10 @@ export interface TripDay {
 
 export interface DayPlace {
   id: string;
-  placeId: string;
+  placeId?: string;
+  locationName?: string;
+  latitude?: number;
+  longitude?: number;
   startTime?: string;
   endTime?: string;
   note?: string;
